@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>IHNU 2.0 - Identité Humaine Numérique Universelle</title>
+    
+    <!-- Version 2.0 - Mars 2026 -->
+    <meta name="version" content="2.0.0">
+    <meta name="release-date" content="2026-03-20">
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="IHNU 2.0 - La plateforme révolutionnaire de votre identité numérique. Créez votre profil complet avec documents officiels, certifications et QR code dynamique.">
+    <meta name="keywords" content="identité numérique, profil professionnel, certification, documents officiels, QR code, Afrique, Côte d'Ivoire, Francis Koffi">
+    <meta name="author" content="Francis Koffi - Promoteur et Fondateur IHNU">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Réseaux sociaux -->
+    <meta property="og:title" content="IHNU 2.0 - Votre Identité Humaine Numérique Universelle">
+    <meta property="og:description" content="Rejoignez plus de 5000 utilisateurs qui ont déjà créé leur identité numérique certifiée">
+    <meta property="og:image" content="https://ihnu.com/images/og-image-v2.jpg">
+    <meta property="og:url" content="https://www.ihnu.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IHNU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IHNU 2.0 - Identité Humaine Numérique">
+    <meta name="twitter:description" content="La première plateforme mondiale de votre identité numérique">
+    <meta name="twitter:image" content="https://ihnu.com/images/twitter-card-v2.jpg">
+    
+    <!-- Font Awesome 6 (dernière version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts - Police optimisée -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- QR Code Generator Library (dernière version) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- Anime.js pour les animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        /* ===== VERSION 2.0.0 ===== */
+        /* ===== ACCESSIBILITÉ & COMPATIBILITÉ ===== */
+        .btn:focus-visible,
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--primary-500);
+            outline-offset: 2px;
+        }
+
+        .header,
+        .hero-badge,
+        .testimonial-card,
+        .modal {
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        /* ===== RESET ET VARIABLES AMÉLIORÉES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Couleurs principales - Version 2.0 */
+            --primary-50: #e8f0fe;
+            --primary-100: #d1e3fd;
+            --primary-200: #a3c7fb;
+            --primary-300: #75abf9;
+            --primary-400: #478ff7;
+            --primary-500: #1a73f5;
+            --primary-600: #0b5cd1;
+            --primary-700: #0845a3;
+            --primary-800: #062f75;
+            --primary-900: #031a47;
+            
+            /* Dégradés - Version 2.0 */
+            --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+            --gradient-success: linear-gradient(135deg, #10b981, #059669);
+            --gradient-warning: linear-gradient(135deg, #f59e0b, #d97706);
+            --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
+            
+            /* Couleurs fonctionnelles */
+            --success-500: #10b981;
+            --warning-500: #f59e0b;
+            --danger-500: #ef4444;
+            --info-500: #3b82f6;
+            
+            /* Couleurs neutres */
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Ombres - Version 2.0 */
+            --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            
+            /* Animations */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Bordures */
+            --radius-sm: 0.375rem;
+            --radius-base: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background: var(--gray-50);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== VERSION 2.0 - BOUTONS AMÉLIORÉS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--radius-base);
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition-base);
+            text-decoration: none;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-success {
+            background: var(--gradient-success);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--gradient-warning);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--gradient-danger);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-500);
+            color: var(--primary-500);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-500);
+            color: white;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--gray-800);
+            border: 1px solid var(--gray-200);
+        }
+
+        .btn-light:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-300);
+        }
+
+        .btn-large {
+            padding: 14px 28px;
+            font-size: 16px;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ===== VERSION 2.0 - HEADER AMÉLIORÉ ===== */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition-base);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 48px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-badge {
+            background: var(--warning-500);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition-base);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-500);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-selector select {
+            padding: 8px 32px 8px 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-base);
+            background: white;
+            font-size: 14px;
+            color: var(--gray-700);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 16px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            margin: 3px 0;
+            transition: var(--transition-base);
+        }
+
+        /* ===== VERSION 2.0 - HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #1a73f5 100%);
+            color: white;
+            padding: 160px 0 100px;
+            margin-top: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #ffffff, #f0f0f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .floating-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: 24px;
+            box-shadow: var(--shadow-2xl);
+            max-width: 320px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ===== VERSION 2.0 - PROFIL CARD ===== */
+        .profile-section {
+            padding: 80px 0;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            max-width: 1100px;
+            margin: 0 auto;
+            border: 1px solid var(--gray-200);
+        }
+
+        .profile-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 48px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-info h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .profile-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .profile-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .profile-badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .badge i {
+            font-size: 12px;
+        }
+
+        /* ===== VERSION 2.0 - QR CODE SECTION ===== */
+        .qr-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 48px;
+        }
+
+        .qr-container {
+            text-align: center;
+            padding: 32px;
+            background: var(--gray-50);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+        }
+
+        #qrcode {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 24px;
+            padding: 12px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .qr-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-base);
+            font-size: 20px;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .whatsapp { background: #25D366; }
+        .facebook { background: #1877F2; }
+        .linkedin { background: #0077B5; }
+        .twitter { background: #1DA1F2; }
+        .telegram { background: #0088cc; }
+        .instagram { background: #E4405F; }
+        .tiktok { background: #000000; }
+
+        .profile-link {
+            display: flex;
+            gap: 8px;
+            background: var(--gray-50);
+            padding: 4px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+
+        .profile-link input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .profile-link input:focus {
+            outline: none;
+        }
+
+        /* ===== VERSION 2.0 - PARAMÈTRES ===== */
+        .settings-section {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .settings-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition-base);
+            border: 1px solid var(--gray-200);
+        }
+
+        .settings-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .settings-header {
+            padding: 24px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .settings-header i {
+            font-size: 28px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.2);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settings-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .settings-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            font-size: 14px;
+            transition: var(--transition-base);
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 4px var(--primary-100);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .document-upload {
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-base);
+            background: var(--gray-50);
+        }
+
+        .document-upload:hover {
+            border-color: var(--primary-500);
+            background: var(--primary-50);
+        }
+
+        .document-upload i {
+            font-size: 48px;
+            color: var(--gray-400);
+            margin-bottom: 12px;
+        }
+
+        .document-list {
+            margin-top: 20px;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            margin-bottom: 8px;
+            border: 1px solid var(--gray-200);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .document-item i {
+            margin-right: 12px;
+        }
+
+        .document-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .delete-doc {
+            color: var(--danger-500);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .delete-doc:hover {
+            transform: scale(1.2);
+        }
+
+        /* ===== VERSION 2.0 - TARIFS ===== */
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-500);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gradient-warning);
+            color: white;
+            padding: 8px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .pricing-header {
+            margin-bottom: 32px;
+        }
+
+        .pricing-header h3 {
+            font-size: 24px;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-500);
+        }
+
+        .pricing-price span {
+            font-size: 16px;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 32px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pricing-features i {
+            width: 20px;
+        }
+
+        .pricing-features .fa-check {
+            color: var(--success-500);
+        }
+
+        .pricing-features .fa-times {
+            color: var(--danger-500);
+        }
+
+        /* ===== VERSION 2.0 - TÉMOIGNAGES ===== */
+        .testimonials-section {
+            padding: 80px 0;
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition-base);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .testimonial-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-info p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .testimonial-rating {
+            color: #FFD700;
+            margin-top: 4px;
+        }
+
+        /* ===== VERSION 2.0 - STATISTIQUES ===== */
+        .stats-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 24px;
+        }
+
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+        }
+
+        /* ===== VERSION 2.0 - NOTIFICATION ===== */
+        .notification {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            padding: 16px 24px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            min-width: 300px;
+            animation: slideInRight 0.3s ease;
+            border-left: 4px solid var(--primary-500);
+        }
+
+        .notification.show {
+            display: flex;
+        }
+
+        .notification.success {
+            border-left-color: var(--success-500);
+        }
+
+        .notification.error {
+            border-left-color: var(--danger-500);
+        }
+
+        .notification.warning {
+            border-left-color: var(--warning-500);
+        }
+
+        .notification i {
+            font-size: 20px;
+        }
+
+        .notification.success i {
+            color: var(--success-500);
+        }
+
+        .notification.error i {
+            color: var(--danger-500);
+        }
+
+        .notification.warning i {
+            color: var(--warning-500);
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== VERSION 2.0 - MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-2xl);
+            max-width: 450px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: scaleIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ===== VERSION 2.0 - FOOTER ===== */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--gray-300);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+
+        /* ===== VERSION 2.0 - RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .qr-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 40px 24px;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition-base);
+                align-items: stretch;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 16px 20px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-large {
+                width: 100%;
+            }
+
+            .profile-header {
+                padding: 32px 20px;
+            }
+
+            .profile-info h1 {
+                font-size: 32px;
+            }
+
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            .qr-section {
+                padding: 24px;
+            }
+
+            .share-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== VERSION 2.0 - ANIMATIONS SUPPLEMENTAIRES ===== */
+        .fade-in {
+            animation: fadeIn 0.6s ease;
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--gray-200);
+            border-top-color: var(--primary-500);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- VERSION 2.0.0 - IHNU PLATEFORME COMPLÈTE -->
+    
+    <!-- NOTIFICATION SYSTÈME -->
+    <div id="notification" class="notification">
+        <i class="fas"></i>
+        <span id="notificationMessage"></span>
+    </div>
+
+    <!-- MODAL AUTHENTIFICATION V2 -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div style="padding: 32px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h2 style="font-size: 24px; font-weight: 700; background: var(--gradient-primary); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bienvenue sur IHNU 2.0</h2>
+                    <button onclick="hideAuthModal()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--gray-500);">&times;</button>
+                </div>
+                
+                <div class="auth-tabs" style="display: flex; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid var(--gray-200);">
+                    <button class="auth-tab active" onclick="switchAuthTab('login')" style="flex: 1; padding: 12px; border: none; background: none; font-weight: 600; cursor: pointer; color: var(--gray-600); border-bottom: 2px solid transparent;">Connexion</button>
+                    <button class="auth-tab" onclick="switchAuthTab('register')" style="flex: 1; padding: 12px; border: none; background: none; font-weight: 600; cursor: pointer; color: var(--gray-600); border-bottom: 2px solid transparent;">Inscription</button>
+                </div>
+                
+                <!-- Formulaire Connexion -->
+                <div id="loginForm" class="auth-form active">
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>Email ou téléphone</label>
+                            <input type="text" id="loginEmail" placeholder="exemple@email.com ou +225..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de passe</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        </div>
+                        <div style="text-align: right; margin: 10px 0;">
+                            <a href="#" onclick="showNotification('Fonctionnalité de récupération à venir', 'info')" style="color: var(--primary-500); text-decoration: none; font-size: 14px;">Mot de passe oublié ?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-large">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Se connecter
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Formulaire Inscription -->
+                <div id="registerForm" class="auth-form">
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" id="registerLastName" placeholder="Koffi" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Prénom</label>
+                                <input type="text" id="registerFirstName" placeholder="Franck" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="registerEmail" placeholder="exemple@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Téléphone</label>
+                            <input type="tel" id="registerPhone" placeholder="+225 07 08 09 10 11" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Mot de passe</label>
+                                <input type="password" id="registerPassword" placeholder="••••••••" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmer</label>
+                                <input type="password" id="registerConfirmPassword" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="acceptTerms" required>
+                                J'accepte les <a href="#" style="color: var(--primary-500);">conditions d'utilisation</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block btn-large">
+                            <i class="fas fa-user-plus"></i>
+                            Créer mon compte gratuit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER V2 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon">IH</div>
+                <span class="logo-text">IHNU</span>
+                <span class="logo-badge">2.0</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#profil">Mon Profil</a></li>
+                    <li><a href="#parametres">Paramètres</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <div class="language-selector">
+                        <select onchange="changeLanguage(this.value)">
+                            <option value="fr">🇫🇷 FR</option>
+                            <option value="en">🇬🇧 EN</option>
+                            <option value="es">🇪🇸 ES</option>
+                            <option value="pt">🇵🇹 PT</option>
+                            <option value="ar">🇸🇦 AR</option>
+                            <option value="zh">🇨🇳 ZH</option>
+                        </select>
+                    </div>
+                    
+                    <div id="authButtons">
+                        <button class="btn btn-outline" onclick="showAuthModal('login')">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Connexion
+                        </button>
+                        <button class="btn btn-primary" onclick="showAuthModal('register')">
+                            <i class="fas fa-user-plus"></i>
+                            Inscription
+                        </button>
+                    </div>
+                    
+                    <div id="userMenu" style="display: none; align-items: center; gap: 16px;">
+                        <span style="font-weight: 500;" id="userNameDisplay"></span>
+                        <button class="btn btn-light" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION V2 -->
+    <section id="accueil" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <i class="fas fa-rocket"></i>
+                    Version 2.0 - Nouvelle génération
+                </span>
+                <h1 class="hero-title">Votre Identité Humaine Numérique Universelle</h1>
+                <p class="hero-subtitle">La première plateforme mondiale qui centralise votre vie professionnelle et personnelle. Créez votre carte de vie digitale certifiée avec documents officiels.</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-light btn-large" onclick="showAuthModal('register')">
+                        <i class="fas fa-user-plus"></i>
+                        Créer mon profil gratuit
+                    </button>
+                    <button class="btn btn-outline btn-large" onclick="scrollToSection('#profil')">
+                        <i class="fas fa-qrcode"></i>
+                        Voir un exemple
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Profils créés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1,200+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25</span>
+                        <span class="stat-label">Pays</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="floating-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                        <div style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">FK</div>
+                        <div>
+                            <h4 style="color: var(--gray-800);">Francis Koffi</h4>
+                            <p style="color: var(--gray-500); font-size: 12px;">Promoteur IHNU</p>
+                        </div>
+                    </div>
+                    <div style="background: var(--gray-100); height: 4px; border-radius: var(--radius-full); margin-bottom: 16px;">
+                        <div style="width: 75%; height: 100%; background: var(--gradient-primary); border-radius: var(--radius-full);"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div><i class="fas fa-check-circle" style="color: var(--success-500);"></i> Vérifié</div>
+                        <div><i class="fas fa-star" style="color: #FFD700;"></i> 4.9</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFIL SECTION V2 -->
+    <section id="profil" class="profile-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Profil de <span style="color: var(--primary-500);">Francis Koffi</span></h2>
+                <p style="color: var(--gray-500); font-size: 18px;">Promoteur et Fondateur d'IHNU - Version 2.0</p>
+            </div>
+            
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Francis+Koffi&size=200&background=random&color=fff" alt="Francis Koffi">
+                    </div>
+                    <div class="profile-info">
+                        <h1>Koffi Franck Marahaba</h1>
+                        <p class="profile-title">Entrepreneur • Manager • Écrivain</p>
+                        <p class="profile-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Duékoué, Côte d'Ivoire
+                        </p>
+                        <p style="margin-bottom: 20px; font-size: 16px; opacity: 0.9;">
+                            Promoteur de l'Identité Humaine Numérique Universelle
+                        </p>
+                        <div class="profile-badges">
+                            <span class="badge"><i class="fas fa-check-circle"></i> Profil vérifié</span>
+                            <span class="badge"><i class="fas fa-certificate"></i> Fondateur IHNU</span>
+                            <span class="badge"><i class="fas fa-star"></i> Ambassadeur</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="qr-section">
+                    <div class="qr-container">
+                        <div id="qrcode"></div>
+                        <p style="margin: 16px 0; color: var(--gray-600);">Scannez ce QR code pour voir mon profil complet</p>
+                        <button class="btn btn-outline" onclick="downloadQRCode()">
+                            <i class="fas fa-download"></i> Télécharger QR Code
+                        </button>
+                    </div>
+                    
+                    <div class="qr-actions">
+                        <div>
+                            <h3 style="margin-bottom: 16px; font-size: 20px;">Partager mon profil</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn whatsapp" onclick="shareProfile('whatsapp')"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="share-btn facebook" onclick="shareProfile('facebook')"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-btn linkedin" onclick="shareProfile('linkedin')"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="share-btn twitter" onclick="shareProfile('twitter')"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="share-btn telegram" onclick="shareProfile('telegram')"><i class="fab fa-telegram"></i></a>
+                                <a href="#" class="share-btn instagram" onclick="shareProfile('instagram')"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="share-btn tiktok" onclick="shareProfile('tiktok')"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-link">
+                            <input type="text" id="profileUrl" value="https://ihnu.com/francis-koffi" readonly>
+                            <button class="btn btn-primary" onclick="copyProfileLink()">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        
+                        <button class="btn btn-success btn-block btn-large" onclick="contactFrancis()">
+                            <i class="fab fa-whatsapp"></i> Contacter Francis Koffi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARAMÈTRES SECTION V2 -->
+    <section id="parametres" class="settings-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Paramètres de mon <span style="color: var(--primary-500);">compte</span></h2>
+                <p style="color: var(--gray-500); font-size: 18px;">Gérez vos informations personnelles et documents officiels</p>
+            </div>
+            
+            <div class="settings-grid">
+                <!-- Informations personnelles -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <i class="fas fa-user"></i>
+                        <h3>Informations personnelles</h3>
+                    </div>
+                    <div class="settings-body">
+                        <form id="personalInfoForm" onsubmit="savePersonalInfo(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nom</label>
+                                    <input type="text" id="lastName" value="Koffi" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Prénom</label>
+                                    <input type="text" id="firstName" value="Franck Marahaba" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Date de naissance</label>
+                                    <input type="date" id="birthDate" value="1990-01-01">
+                                </div>
+                                <div class="form-group">
+                                    <label>Lieu de naissance</label>
+                                    <input type="text" id="birthPlace" value="Duékoué">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nationalité</label>
+                                    <input type="text" id="nationality" value="Ivoirienne">
+                                </div>
+                                <div class="form-group">
+                                    <label>Profession</label>
+                                    <input type="text" id="profession" value="Entrepreneur">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="email" value="francis.koffi@ihnu.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Téléphone</label>
+                                <input type="tel" id="phone" value="+225 07 08 09 10 11" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-save"></i>
+                                Enregistrer les modifications
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Pièce d'identité -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <i class="fas fa-id-card"></i>
+                        <h3>Pièce d'identité</h3>
+                    </div>
+                    <div class="settings-body">
+                        <form id="idInfoForm" onsubmit="saveIDInfo(event)">
+                            <div class="form-group">
+                                <label>Type de pièce d'identité</label>
+                                <select id="idType">
+                                    <option value="cni">Carte Nationale d'Identité</option>
+                                    <option value="passeport">Passeport</option>
+                                    <option value="permis">Permis de conduire</option>
+                                    <option value="carte-sejour">Carte de séjour</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Numéro de la pièce d'identité</label>
+                                <input type="text" id="idNumber" placeholder="Entrez le numéro" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Date de délivrance</label>
+                                <input type="date" id="idIssueDate">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Date d'expiration</label>
+                                <input type="date" id="idExpiryDate">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Lieu de délivrance</label>
+                                <input type="text" id="idIssuePlace" placeholder="Lieu de délivrance">
+                            </div>
+                            
+                            <div class="document-upload" onclick="document.getElementById('idUpload').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Télécharger une copie de la pièce d'identité</p>
+                                <small style="color: var(--gray-500);">Format accepté: PDF, JPG, PNG (Max 5 Mo)</small>
+                                <input type="file" id="idUpload" style="display: none;" accept=".pdf,.jpg,.jpeg,.png" onchange="uploadIDDocument(this.files)">
+                            </div>
+                            
+                            <div id="idDocumentList" class="document-list"></div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">
+                                <i class="fas fa-save"></i>
+                                Enregistrer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Diplômes et certifications -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Diplômes et certifications</h3>
+                    </div>
+                    <div class="settings-body">
+                        <div id="diplomasList">
+                            <!-- Liste dynamique des diplômes -->
+                        </div>
+                        
+                        <div class="document-upload" onclick="showAddDiplomaModal()">
+                            <i class="fas fa-plus-circle"></i>
+                            <p>Ajouter un diplôme ou certificat</p>
+                        </div>
+                        
+                        <div id="diplomaDocumentsList" class="document-list"></div>
+                    </div>
+                </div>
+                
+                <!-- Informations familiales -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Informations familiales</h3>
+                    </div>
+                    <div class="settings-body">
+                        <form id="familyInfoForm" onsubmit="saveFamilyInfo(event)">
+                            <div class="form-group">
+                                <label>Nom du père</label>
+                                <input type="text" id="fatherName" placeholder="Nom du père" value="Koffi Kouadio">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Nom de la mère</label>
+                                <input type="text" id="motherName" placeholder="Nom de la mère" value="Koffi Aya">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Situation familiale</label>
+                                <select id="maritalStatus">
+                                    <option value="celibataire">Célibataire</option>
+                                    <option value="marie">Marié(e)</option>
+                                    <option value="divorce">Divorcé(e)</option>
+                                    <option value="veuf">Veuf(ve)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Nombre d'enfants</label>
+                                <input type="number" id="childrenCount" min="0" value="0">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Profession du père</label>
+                                <input type="text" id="fatherProfession" placeholder="Profession du père">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Profession de la mère</label>
+                                <input type="text" id="motherProfession" placeholder="Profession de la mère">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-save"></i>
+                                Enregistrer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Sécurité et confidentialité -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Sécurité et confidentialité</h3>
+                    </div>
+                    <div class="settings-body">
+                        <form id="securityForm" onsubmit="changePassword(event)">
+                            <div class="form-group">
+                                <label>Mot de passe actuel</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Nouveau mot de passe</label>
+                                <input type="password" id="newPassword" required>
+                                <small style="color: var(--gray-500);">Minimum 8 caractères</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Confirmer le nouveau mot de passe</label>
+                                <input type="password" id="confirmNewPassword" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-key"></i>
+                                Changer le mot de passe
+                            </button>
+                        </form>
+                        
+                        <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--gray-200);">
+                        
+                        <h4 style="margin-bottom: 16px;">Confidentialité</h4>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="profilePublic" checked>
+                                Profil public (visible par tous)
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="showEmail">
+                                Afficher mon adresse email
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="showPhone">
+                                Afficher mon numéro de téléphone
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="showDocuments">
+                                Rendre mes documents visibles
+                            </label>
+                        </div>
+                        
+                        <button class="btn btn-outline btn-block" onclick="savePrivacySettings()">
+                            <i class="fas fa-save"></i>
+                            Enregistrer les paramètres
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Notifications -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <i class="fas fa-bell"></i>
+                        <h3>Notifications</h3>
+                    </div>
+                    <div class="settings-body">
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="notifEmail" checked>
+                                Notifications par email
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="notifSMS" checked>
+                                Notifications par SMS
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="notifWhatsApp" checked>
+                                Notifications WhatsApp
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="notifProfile">
+                                Nouvelle visite de profil
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="notifMessage" checked>
+                                Nouveau message
+                            </label>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block" onclick="saveNotificationSettings()">
+                            <i class="fas fa-save"></i>
+                            Enregistrer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARIFS SECTION V2 -->
+    <section id="tarifs" class="pricing-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Nos <span style="color: var(--primary-500);">tarifs</span></h2>
+                <p style="color: var(--gray-500); font-size: 18px;">Des solutions adaptées à tous les besoins</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="pricing-price">Gratuit</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Profil simple</li>
+                        <li><i class="fas fa-check"></i> QR Code statique</li>
+                        <li><i class="fas fa-check"></i> 3 photos maximum</li>
+                        <li><i class="fas fa-check"></i> Partage réseaux sociaux</li>
+                        <li><i class="fas fa-times"></i> Documents officiels</li>
+                        <li><i class="fas fa-times"></i> Certifications</li>
+                        <li><i class="fas fa-times"></i> Badge vérifié</li>
+                    </ul>
+                    <button class="btn btn-outline btn-block" onclick="showAuthModal('register')">
+                        Commencer
+                    </button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="popular-badge">POPULAIRE</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="pricing-price">15 $ <span>/an</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Profil complet</li>
+                        <li><i class="fas fa-check"></i> QR Code dynamique</li>
+                        <li><i class="fas fa-check"></i> Photos et vidéos illimitées</li>
+                        <li><i class="fas fa-check"></i> Documents officiels (5)</li>
+                        <li><i class="fas fa-check"></i> 3 certifications incluses</li>
+                        <li><i class="fas fa-check"></i> Badge vérifié</li>
+                        <li><i class="fas fa-check"></i> Statistiques de base</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block" onclick="showAuthModal('register')">
+                        Choisir Premium
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">25 $ <span>/an</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Tout le Premium</li>
+                        <li><i class="fas fa-check"></i> Documents illimités</li>
+                        <li><i class="fas fa-check"></i> Certifications illimitées</li>
+                        <li><i class="fas fa-check"></i> Badge Pro certifié</li>
+                        <li><i class="fas fa-check"></i> Mise en avant recherche</li>
+                        <li><i class="fas fa-check"></i> Statistiques avancées</li>
+                        <li><i class="fas fa-check"></i> Support prioritaire 24/7</li>
+                    </ul>
+                    <button class="btn btn-outline btn-block" onclick="showAuthModal('register')">
+                        Devenir Pro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÉMOIGNAGES SECTION V2 -->
+    <section id="temoignages" class="testimonials-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; color: white;">Ils nous font confiance</h2>
+                <p style="color: rgba(255,255,255,0.8); font-size: 18px;">Rejoignez plus de 5000 utilisateurs satisfaits</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Grâce à IHNU, j'ai trouvé 5 nouveaux clients en seulement 2 semaines. Les gens me font plus confiance avec mon profil certifié."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Amadou+Diallo&size=50" alt="Amadou" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Amadou Diallo</h4>
+                            <p>Maçon, Dakar</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "IHNU a révolutionné mon activité de coiffeuse. Maintenant, mes clientes me trouvent directement via mon QR code."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Fatou+Seck&size=50" alt="Fatou" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Fatou Seck</h4>
+                            <p>Coiffeuse, Abidjan</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "En tant que menuisier, je n'avais jamais pensé à avoir un profil en ligne. Maintenant je reçois des commandes de toute la ville."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Ibrahima+Kone&size=50" alt="Ibrahima" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Ibrahima Koné</h4>
+                            <p>Menuisier, Bamako</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIQUES SECTION V2 -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">Utilisateurs actifs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-number" data-target="1200">0</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Pays</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-number" data-target="3000">0</div>
+                    <div class="stat-label">Opportunités</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER V2 -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                        <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">IH</div>
+                        <span style="font-size: 20px; font-weight: 700;">IHNU</span>
+                    </div>
+                    <p style="color: var(--gray-400); line-height: 1.8;">La première plateforme mondiale de votre identité numérique. Version 2.0</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Plateforme</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#profil">Mon Profil</a></li>
+                        <li><a href="#parametres">Paramètres</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="#" onclick="showNotification('Blog à venir', 'info')">Blog</a></li>
+                        <li><a href="#" onclick="showNotification('Aide à venir', 'info')">Centre d'aide</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#" onclick="showNotification('Fonctionnalité à venir', 'info')">Devenir partenaire</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +225 07 98 88 15 40</li>
+                        <li><i class="fas fa-envelope"></i>koffifrancis9888@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Duékoué, Côte d'Ivoire</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 IHNU Version 2.0 - Identité Humaine Numérique Universelle. Tous droits réservés.</p>
+                <p style="margin-top: 8px;">Conçu et développé par Francis Koffi, Promoteur et Fondateur d'IHNU</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== VERSION 2.0.0 - CODE PRINCIPAL =====
+        
+        // ===== CONFIGURATION =====
+        const APP_VERSION = '2.0.0';
+        const APP_NAME = 'IHNU';
+        const APP_AUTHOR = 'Francis Koffi';
+        
+        // ===== NOTIFICATION =====
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const icon = notification.querySelector('i');
+            const messageSpan = document.getElementById('notificationMessage');
+            
+            icon.className = type === 'success' ? 'fas fa-check-circle' : 
+                            type === 'error' ? 'fas fa-exclamation-circle' : 
+                            'fas fa-info-circle';
+            
+            notification.className = `notification show ${type}`;
+            messageSpan.textContent = message;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // ===== MENU MOBILE =====
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            
+            const bars = this.querySelectorAll('.bar');
+            if (document.getElementById('navMenu').classList.contains('active')) {
+                bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
+
+        // ===== SCROLL ACTIVE LINK =====
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ===== SCROLL TO SECTION =====
+        function scrollToSection(sectionId) {
+            const section = document.querySelector(sectionId);
+            if (section) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = section.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // ===== AUTH MODAL =====
+        function showAuthModal(type) {
+            document.getElementById('authModal').classList.add('active');
+            switchAuthTab(type);
+        }
+
+        function hideAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function switchAuthTab(type) {
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.style.color = 'var(--gray-600)';
+                tab.style.borderBottomColor = 'transparent';
+            });
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            if (type === 'login') {
+                document.querySelectorAll('.auth-tab')[0].classList.add('active');
+                document.querySelectorAll('.auth-tab')[0].style.color = 'var(--primary-500)';
+                document.querySelectorAll('.auth-tab')[0].style.borderBottomColor = 'var(--primary-500)';
+                document.getElementById('loginForm').classList.add('active');
+            } else {
+                document.querySelectorAll('.auth-tab')[1].classList.add('active');
+                document.querySelectorAll('.auth-tab')[1].style.color = 'var(--primary-500)';
+                document.querySelectorAll('.auth-tab')[1].style.borderBottomColor = 'var(--primary-500)';
+                document.getElementById('registerForm').classList.add('active');
+            }
+        }
+
+        // ===== AUTH HANDLERS =====
+        function handleLogin(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('loginEmail');
+            const passwordInput = document.getElementById('loginPassword');
+            if (!emailInput || !passwordInput) {
+                showNotification('Erreur technique : champs manquants', 'error');
+                return;
+            }
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            if (!email || !password) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+            // Simuler une connexion
+            showNotification('Connexion réussie ! Bienvenue sur IHNU 2.0', 'success');
+            hideAuthModal();
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', email.split('@')[0]);
+            updateUIAfterLogin();
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const firstNameInput = document.getElementById('registerFirstName');
+            const lastNameInput = document.getElementById('registerLastName');
+            const emailInput = document.getElementById('registerEmail');
+            const phoneInput = document.getElementById('registerPhone');
+            const passwordInput = document.getElementById('registerPassword');
+            const confirmPasswordInput = document.getElementById('registerConfirmPassword');
+            const acceptTermsInput = document.getElementById('acceptTerms');
+            if (!firstNameInput || !lastNameInput || !emailInput || !phoneInput || !passwordInput || !confirmPasswordInput || !acceptTermsInput) {
+                showNotification('Erreur technique : champs manquants', 'error');
+                return;
+            }
+            const firstName = firstNameInput.value;
+            const lastName = lastNameInput.value;
+            const email = emailInput.value;
+            const phone = phoneInput.value;
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const acceptTerms = acceptTermsInput.checked;
+            if (!firstName || !lastName || !email || !phone || !password) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+            if (password !== confirmPassword) {
+                showNotification('Les mots de passe ne correspondent pas', 'error');
+                return;
+            }
+            if (password.length < 8) {
+                showNotification('Le mot de passe doit contenir au moins 8 caractères', 'error');
+                return;
+            }
+            if (!acceptTerms) {
+                showNotification('Vous devez accepter les conditions d\'utilisation', 'error');
+                return;
+            }
+            showNotification('Inscription réussie ! Bienvenue sur IHNU 2.0', 'success');
+            hideAuthModal();
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', `${firstName} ${lastName}`);
+            updateUIAfterLogin();
+        }
+
+        function updateUIAfterLogin() {
+            const authButtons = document.getElementById('authButtons');
+            const userMenu = document.getElementById('userMenu');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+            
+            if (authButtons && userMenu && userNameDisplay) {
+                authButtons.style.display = 'none';
+                userMenu.style.display = 'flex';
+                userNameDisplay.textContent = localStorage.getItem('userName') || 'Utilisateur';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userName');
+            
+            document.getElementById('authButtons').style.display = 'flex';
+            document.getElementById('userMenu').style.display = 'none';
+            
+            showNotification('Déconnexion réussie', 'success');
+        }
+
+        // ===== QR CODE =====
+        function generateQRCode() {
+            const qrcodeDiv = document.getElementById('qrcode');
+            qrcodeDiv.innerHTML = '';
+            
+            new QRCode(qrcodeDiv, {
+                text: 'https://ihnu.com/francis-koffi',
+                width: 200,
+                height: 200,
+                colorDark: '#1a73f5',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        function downloadQRCode() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (canvas) {
+                const link = document.createElement('a');
+                link.download = 'francis-koffi-qrcode.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                showNotification('QR Code téléchargé avec succès !', 'success');
+            }
+        }
+
+        // ===== PARTAGE =====
+        function shareProfile(platform) {
+            const url = encodeURIComponent('https://ihnu.com/francis-koffi');
+            const text = encodeURIComponent('Découvrez le profil de Francis Koffi sur IHNU 2.0 - Entrepreneur, Manager, Écrivain et Promoteur de l\'Identité Humaine Numérique Universelle');
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${text}%20${url}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${url}&text=${text}`;
+                    break;
+                case 'instagram':
+                    showNotification('Partagez ce lien sur Instagram : https://ihnu.com/francis-koffi', 'info');
+                    return;
+                case 'tiktok':
+                    showNotification('Partagez ce lien sur TikTok : https://ihnu.com/francis-koffi', 'info');
+                    return;
+            }
+            
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+            showNotification(`Partage sur ${platform} ouvert !`, 'success');
+        }
+
+        function copyProfileLink() {
+            const linkInput = document.getElementById('profileUrl');
+            if (!linkInput) {
+                showNotification('Champ de lien introuvable', 'error');
+                return;
+            }
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(linkInput.value)
+                    .then(() => showNotification('Lien copié dans le presse-papier !', 'success'))
+                    .catch(() => showNotification('Erreur lors de la copie', 'error'));
+            } else {
+                linkInput.select();
+                document.execCommand('copy');
+                showNotification('Lien copié dans le presse-papier !', 'success');
+            }
+        }
+
+        function contactFrancis() {
+            const phone = '2250708091011';
+            const message = encodeURIComponent('Bonjour Francis Koffi, je découvre votre profil sur IHNU 2.0 et souhaiterais échanger avec vous.');
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+            showNotification('WhatsApp ouvert', 'success');
+        }
+
+        // ===== PARAMÈTRES =====
+        function savePersonalInfo(e) {
+            e.preventDefault();
+            showNotification('Informations personnelles enregistrées avec succès !', 'success');
+        }
+
+        function saveIDInfo(e) {
+            e.preventDefault();
+            showNotification('Informations de la pièce d\'identité enregistrées !', 'success');
+        }
+
+        function uploadIDDocument(files) {
+            if (files.length > 0) {
+                const list = document.getElementById('idDocumentList');
+                for (let file of files) {
+                    const docElement = document.createElement('div');
+                    docElement.className = 'document-item';
+                    docElement.innerHTML = `
+                        <div class="document-info">
+                            <i class="fas fa-file-pdf" style="color: var(--danger-500);"></i>
+                            <span>${file.name}</span>
+                        </div>
+                        <i class="fas fa-trash delete-doc" onclick="this.parentElement.remove()"></i>
+                    `;
+                    list.appendChild(docElement);
+                }
+                showNotification('Document ajouté avec succès', 'success');
+            }
+        }
+
+        function saveFamilyInfo(e) {
+            e.preventDefault();
+            showNotification('Informations familiales enregistrées !', 'success');
+        }
+
+        function changePassword(e) {
+            e.preventDefault();
+            
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmNewPassword').value;
+            
+            if (!current || !newPass || !confirm) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+            
+            if (newPass !== confirm) {
+                showNotification('Les mots de passe ne correspondent pas', 'error');
+                return;
+            }
+            
+            if (newPass.length < 8) {
+                showNotification('Le mot de passe doit contenir au moins 8 caractères', 'error');
+                return;
+            }
+            
+            showNotification('Mot de passe modifié avec succès !', 'success');
+            document.getElementById('securityForm').reset();
+        }
+
+        function savePrivacySettings() {
+            showNotification('Paramètres de confidentialité enregistrés !', 'success');
+        }
+
+        function saveNotificationSettings() {
+            showNotification('Paramètres de notifications enregistrés !', 'success');
+        }
+
+        function showAddDiplomaModal() {
+            showNotification('Fonctionnalité d\'ajout de diplôme à venir', 'info');
+        }
+
+        // ===== LANGUE =====
+        function changeLanguage(lang) {
+            const translations = {
+                fr: {
+                    title: 'Votre Identité Humaine Numérique Universelle'
+                },
+                en: {
+                    title: 'Your Universal Digital Human Identity'
+                },
+                es: {
+                    title: 'Tu Identidad Humana Digital Universal'
+                },
+                pt: {
+                    title: 'Sua Identidade Humana Digital Universal'
+                },
+                ar: {
+                    title: 'هويتك الإنسانية الرقمية العالمية'
+                },
+                zh: {
+                    title: '您的通用数字人类身份'
+                }
+            };
+            
+            if (translations[lang]) {
+                document.querySelector('.hero-title').textContent = translations[lang].title;
+            }
+            
+            showNotification(`Langue changée en ${lang.toUpperCase()}`, 'success');
+        }
+
+        // ===== ANIMATION DES STATISTIQUES =====
+        let statsAnimated = false;
+        function animateStats() {
+            if (statsAnimated) return;
+            statsAnimated = true;
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                let current = 0;
+                const increment = Math.ceil(target / 50);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = current.toLocaleString();
+                }, 30);
+            });
+        }
+
+        // ===== VÉRIFIER CONNEXION AU CHARGEMENT =====
+        function checkLoginStatus() {
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                updateUIAfterLogin();
+            }
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // QRCode.js check
+            if (typeof QRCode === 'undefined') {
+                console.error('QRCode.js n\'est pas chargé !');
+            } else {
+                if (typeof generateQRCode === 'function') generateQRCode();
+            }
+            checkLoginStatus();
+
+            // Observer pour les statistiques
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection && typeof IntersectionObserver !== 'undefined') {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateStats();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                observer.observe(statsSection);
+            }
+
+            // Fermer la modale en cliquant à l'extérieur
+            const authModal = document.getElementById('authModal');
+            if (authModal) {
+                authModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        if (typeof hideAuthModal === 'function') hideAuthModal();
+                    }
+                });
+            }
+
+            // Afficher la version
+            console.log(`IHNU Version ${APP_VERSION} chargé avec succès`);
+            console.log(`Développé par ${APP_AUTHOR}`);
+        });
+    </script>
+</body>
+</html>
